@@ -1,7 +1,16 @@
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import adapter from '@sveltejs/adapter-static';
 
-export default {
-  preprocess: vitePreprocess(),
-  adapter: adapter()
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  kit: {
+    adapter: adapter({
+      // 可选：指定构建输出目录（默认为 'build'）
+      pages: 'build',
+      assets: 'build',
+      fallback: null, // 对于单页应用，可设置为 'index.html'
+      precompress: false
+    })
+  }
 };
+
+export default config;
