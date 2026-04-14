@@ -7,7 +7,8 @@
 	import { loadingStore } from "../stores/loadingStore";
 	import { authStore, initAuth } from "../stores/authStore";
 	import { goto } from "$app/navigation";
-	import { page } from "$app/stores";
+import { page } from "$app/stores";
+import { base } from "$app/paths";
 
 	let isLoading = false;
 	let loadingMessage = "加载中...";
@@ -35,12 +36,12 @@
 	$: if (typeof window !== "undefined") {
 		const currentPath = $page.url.pathname;
 		// 登录页面不需要检查
-		if (currentPath !== "/login") {
+		if (currentPath !== `${base}/login`) {
 			// 延迟检查，确保登录状态已经更新
 			setTimeout(() => {
 				if (!isLoggedIn) {
 					// 未登录，跳转到登录页面
-					goto("/login");
+					goto(`${base}/login`);
 				}
 			}, 100);
 		}
