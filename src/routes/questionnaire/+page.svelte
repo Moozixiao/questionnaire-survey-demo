@@ -1,5 +1,6 @@
 <script>
     import ProgressBar from "../../components/layout/ProgressBar.svelte";
+    import { base } from "$app/paths";
 </script>
 
 <div class="max-w-7xl mx-auto space-y-8">
@@ -12,7 +13,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Project Core Module -->
             <a
-                href="/questionnaire/project-core"
+                href="{base}/questionnaire/project-core"
                 class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-primary group"
             >
                 <div class="flex items-center gap-4 mb-4">
@@ -37,7 +38,7 @@
 
             <!-- Technical Module -->
             <a
-                href="/questionnaire/technical"
+                href="{base}/questionnaire/technical"
                 class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-secondary group"
             >
                 <div class="flex items-center gap-4 mb-4">
@@ -61,7 +62,7 @@
 
             <!-- Logistics Module -->
             <a
-                href="/questionnaire/logistics"
+                href="{base}/questionnaire/logistics"
                 class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-tertiary group"
             >
                 <div class="flex items-center gap-4 mb-4">

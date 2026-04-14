@@ -1,14 +1,5 @@
 import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./ssr.js";
-let base = "";
-let assets = base;
-const initial = { base, assets };
-function reset() {
-  base = initial.base;
-  assets = initial.assets;
-}
-function set_assets(path) {
-  assets = initial.assets = path;
-}
+import "./paths.js";
 let public_env = {};
 function set_private_env(environment) {
 }
@@ -133,7 +124,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets2 + '/favicon.png" />\n	<meta name="viewport" content="width=device-width, initial-scale=1" />\n	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />\n	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />\n	' + head + "\n</head>\n<body>\n	<div>\n		" + body + "\n	</div>\n</body>\n</html>",
+    app: ({ head, body, assets, nonce, env }) => '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets + '/favicon.png" />\n	<meta name="viewport" content="width=device-width, initial-scale=1" />\n	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />\n	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />\n	' + head + "\n</head>\n<body>\n	<div>\n		" + body + "\n	</div>\n</body>\n</html>",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -205,20 +196,16 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1s006ut"
+  version_hash: "taems4"
 };
 function get_hooks() {
   return {};
 }
 export {
-  assets as a,
-  base as b,
-  set_public_env as c,
-  set_assets as d,
-  set_building as e,
+  set_public_env as a,
+  set_building as b,
   get_hooks as g,
   options as o,
   public_env as p,
-  reset as r,
   set_private_env as s
 };

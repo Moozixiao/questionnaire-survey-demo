@@ -2,16 +2,17 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
     import LogoutModal from "../../components/auth/LogoutModal.svelte";
+    import { base } from "$app/paths";
 
     const navItems = [
-        { id: "dashboard", label: "仪表盘", icon: "dashboard", href: "/" },
+        { id: "dashboard", label: "仪表盘", icon: "dashboard", href: `${base}/` },
         {
             id: "modules",
             label: "模块",
             icon: "inventory_2",
-            href: "/questionnaire",
+            href: `${base}/questionnaire`,
         },
-        { id: "report", label: "报告", icon: "summarize", href: "/report" },
+        { id: "report", label: "报告", icon: "summarize", href: `${base}/report` },
     ];
 
     // 用户信息
@@ -38,14 +39,14 @@
      * @description 根据当前路径判断导航项是否应该处于激活状态
      */
     $: isActive = (item) => {
-        if (item.href === "/") {
+        if (item.href === `${base}/`) {
             // 仪表盘：只有根路径时激活
-            return currentPath === "/";
-        } else if (item.href === "/questionnaire") {
+            return currentPath === `${base}/`;
+        } else if (item.href === `${base}/questionnaire`) {
             // 模块：/questionnaire 或 /questionnaire/* 路径时激活
             return (
-                currentPath === "/questionnaire" ||
-                currentPath.startsWith("/questionnaire/")
+                currentPath === `${base}/questionnaire` ||
+                currentPath.startsWith(`${base}/questionnaire/`)
             );
         } else {
             // 其他：精确匹配或以该路径开头
@@ -106,15 +107,15 @@
         </div>
         <a
             class={`flex items-center space-x-3 px-3 py-2 transition-colors duration-300 ${
-                currentPath === "/settings" ||
-                currentPath.startsWith("/settings/")
+                currentPath === `${base}/settings` ||
+                currentPath.startsWith(`${base}/settings/`)
                     ? "text-blue-700 font-semibold border-r-4 border-blue-600 bg-slate-200"
                     : "text-slate-600 hover:bg-slate-200"
             }`}
-            href="/settings"
+            href="${base}/settings"
             on:click={(e) => {
                 e.preventDefault();
-                goto("/settings");
+                goto(`${base}/settings`);
             }}
         >
             <span class="material-symbols-outlined">settings</span>
@@ -122,15 +123,15 @@
         </a>
         <a
             class={`flex items-center space-x-3 px-3 py-2 transition-colors duration-300 ${
-                currentPath === "/support" ||
-                currentPath.startsWith("/support/")
+                currentPath === `${base}/support` ||
+                currentPath.startsWith(`${base}/support/`)
                     ? "text-blue-700 font-semibold border-r-4 border-blue-600 bg-slate-200"
                     : "text-slate-600 hover:bg-slate-200"
             }`}
-            href="/support"
+            href="${base}/support"
             on:click={(e) => {
                 e.preventDefault();
-                goto("/support");
+                goto(`${base}/support`);
             }}
         >
             <span class="material-symbols-outlined">help</span>

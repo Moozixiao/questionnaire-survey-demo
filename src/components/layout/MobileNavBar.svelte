@@ -1,18 +1,19 @@
 <script>
     import { page } from "$app/stores";
+    import { base } from "$app/paths";
 
     const currentPath = $page.url.pathname;
 
     const navItems = [
-        { id: "dashboard", label: "核心", icon: "dashboard", href: "/" },
+        { id: "dashboard", label: "核心", icon: "dashboard", href: `${base}/` },
         {
             id: "modules",
             label: "模块",
             icon: "layers",
-            href: "/questionnaire",
+            href: `${base}/questionnaire`,
         },
-        { id: "report", label: "报告", icon: "assessment", href: "/report" },
-        { id: "settings", label: "设置", icon: "settings", href: "#" },
+        { id: "report", label: "报告", icon: "assessment", href: `${base}/report` },
+        { id: "settings", label: "设置", icon: "settings", href: `${base}/settings` },
     ];
 </script>
 

@@ -1,6 +1,7 @@
 <script>
 	import { goto } from "$app/navigation";
 	import { login } from "../../stores/authStore";
+	import { base } from "$app/paths";
 
 	// 登录表单状态
 	let username = "";
@@ -33,7 +34,7 @@
 		setTimeout(() => {
 			if (login(username, password)) {
 				// 登录成功，跳转到主界面
-				goto("/");
+				goto(`${base}/`);
 			} else {
 				// 登录失败，显示错误信息
 				errorMessage = "账号或密码错误";

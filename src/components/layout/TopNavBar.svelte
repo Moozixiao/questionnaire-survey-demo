@@ -2,6 +2,7 @@
 	import { page } from "$app/stores";
 	import { authStore, logout } from "../../stores/authStore";
 	import { goto } from "$app/navigation";
+	import { base } from "$app/paths";
 
 	$: currentPath = $page.url.pathname;
 	let user = null;
@@ -17,7 +18,7 @@
 
 	function generateBreadcrumbs(path) {
 		const parts = path.split("/").filter((part) => part);
-		const breadcrumbs = [{ label: "仪表盘", href: "/" }];
+		const breadcrumbs = [{ label: "仪表盘", href: `${base}/` }];
 
 		if (parts.length === 0) {
 			breadcrumbs[0].isActive = true;
@@ -87,7 +88,7 @@
 	// 处理登出
 	function handleLogout() {
 		logout();
-		goto("/login");
+		goto(`${base}/login`);
 	}
 </script>
 
@@ -176,16 +177,16 @@
 							</p>
 						</div>
 						<a
-							href="/settings"
-							class="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-sm"
-							on:click={() => (showDropdown = false)}
+						href="{base}/settings"
+						class="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-sm"
+						on:click={() => (showDropdown = false)}
+					>
+						<span
+							class="material-symbols-outlined text-slate-500 text-xs"
+							>settings</span
 						>
-							<span
-								class="material-symbols-outlined text-slate-500 text-xs"
-								>settings</span
-							>
-							设置
-						</a>
+						设置
+					</a>
 						<button
 							class="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-sm text-red-600 w-full text-left"
 							on:click={handleLogout}

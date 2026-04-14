@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
+const base = process.env.VITE_BASE_URL;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,6 +11,9 @@ const config = {
       fallback: null, // 对于单页应用，可设置为 'index.html'
       precompress: false
     }),
+    paths: {
+      base
+    },
     prerender: {
       handleHttpError: 'warn'
     }

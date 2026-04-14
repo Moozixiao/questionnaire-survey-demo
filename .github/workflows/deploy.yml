@@ -33,7 +33,7 @@ jobs:
 
       # 4️⃣ 构建项目
       - name: Build project
-        run: npm run build
+        run: npm run build:gh-pages
 
       # 5️⃣ 部署到 gh-pages
       - name: Deploy to GitHub Pages

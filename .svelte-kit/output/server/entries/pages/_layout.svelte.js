@@ -1,5 +1,6 @@
 import { c as create_ssr_component, a as subscribe, e as each, b as add_attribute, d as escape, v as validate_component, n as null_to_empty } from "../../chunks/ssr.js";
 /* empty css                */import { p as page } from "../../chunks/stores.js";
+import { b as base } from "../../chunks/paths.js";
 import { a as authStore, i as initAuth } from "../../chunks/authStore.js";
 import { w as writable } from "../../chunks/index.js";
 function client_method(key) {
@@ -46,19 +47,19 @@ const SideNavBar = create_ssr_component(($$result, $$props, $$bindings, slots) =
       id: "dashboard",
       label: "仪表盘",
       icon: "dashboard",
-      href: "/"
+      href: `${base}/`
     },
     {
       id: "modules",
       label: "模块",
       icon: "inventory_2",
-      href: "/questionnaire"
+      href: `${base}/questionnaire`
     },
     {
       id: "report",
       label: "报告",
       icon: "summarize",
-      href: "/report"
+      href: `${base}/report`
     }
   ];
   const userInfo = { name: "Alex Chen", role: "首席架构师" };
@@ -71,10 +72,10 @@ const SideNavBar = create_ssr_component(($$result, $$props, $$bindings, slots) =
     $$result.head = previous_head;
     currentPath = $page.url.pathname;
     isActive = (item) => {
-      if (item.href === "/") {
-        return currentPath === "/";
-      } else if (item.href === "/questionnaire") {
-        return currentPath === "/questionnaire" || currentPath.startsWith("/questionnaire/");
+      if (item.href === `${base}/`) {
+        return currentPath === `${base}/`;
+      } else if (item.href === `${base}/questionnaire`) {
+        return currentPath === `${base}/questionnaire` || currentPath.startsWith(`${base}/questionnaire/`);
       } else {
         return currentPath === item.href || currentPath.startsWith(item.href + "/");
       }
@@ -87,13 +88,13 @@ const SideNavBar = create_ssr_component(($$result, $$props, $$bindings, slots) =
       )}${add_attribute("href", item.href, 0)}><span class="material-symbols-outlined">${escape(item.icon)}</span> <span class="text-sm font-label">${escape(item.label)}</span> </a>`;
     })}</nav> <div class="px-4 pt-4 border-t border-slate-200/30"><div class="flex items-center space-x-3 px-3 py-2 mb-4"> <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-700 text-white font-bold text-sm shadow-md">${escape(getInitials(userInfo.name))}</div> <div class="overflow-hidden"><span class="text-xs font-bold truncate text-on-surface">${escape(userInfo.name)}</span> <span class="text-[10px] text-secondary">${escape(userInfo.role)}</span></div></div> <a${add_attribute(
       "class",
-      `flex items-center space-x-3 px-3 py-2 transition-colors duration-300 ${currentPath === "/settings" || currentPath.startsWith("/settings/") ? "text-blue-700 font-semibold border-r-4 border-blue-600 bg-slate-200" : "text-slate-600 hover:bg-slate-200"}`,
+      `flex items-center space-x-3 px-3 py-2 transition-colors duration-300 ${currentPath === `${base}/settings` || currentPath.startsWith(`${base}/settings/`) ? "text-blue-700 font-semibold border-r-4 border-blue-600 bg-slate-200" : "text-slate-600 hover:bg-slate-200"}`,
       0
-    )} href="/settings"><span class="material-symbols-outlined" data-svelte-h="svelte-asg9my">settings</span> <span class="text-sm font-label" data-svelte-h="svelte-klhvzz">系统设置</span></a> <a${add_attribute(
+    )} href="${"$" + escape(base, true) + "/settings"}"><span class="material-symbols-outlined" data-svelte-h="svelte-asg9my">settings</span> <span class="text-sm font-label" data-svelte-h="svelte-klhvzz">系统设置</span></a> <a${add_attribute(
       "class",
-      `flex items-center space-x-3 px-3 py-2 transition-colors duration-300 ${currentPath === "/support" || currentPath.startsWith("/support/") ? "text-blue-700 font-semibold border-r-4 border-blue-600 bg-slate-200" : "text-slate-600 hover:bg-slate-200"}`,
+      `flex items-center space-x-3 px-3 py-2 transition-colors duration-300 ${currentPath === `${base}/support` || currentPath.startsWith(`${base}/support/`) ? "text-blue-700 font-semibold border-r-4 border-blue-600 bg-slate-200" : "text-slate-600 hover:bg-slate-200"}`,
       0
-    )} href="/support"><span class="material-symbols-outlined" data-svelte-h="svelte-14m2008">help</span> <span class="text-sm font-label" data-svelte-h="svelte-1k09y9o">帮助与支持</span></a>  <button class="w-full flex items-center space-x-3 px-3 py-2 transition-colors duration-300 text-slate-600 hover:bg-slate-200 hover:text-red-600" data-svelte-h="svelte-3i8gsr"><span class="material-symbols-outlined">logout</span> <span class="text-sm font-label">登出</span></button></div></aside>  ${validate_component(LogoutModal, "LogoutModal").$$render(
+    )} href="${"$" + escape(base, true) + "/support"}"><span class="material-symbols-outlined" data-svelte-h="svelte-14m2008">help</span> <span class="text-sm font-label" data-svelte-h="svelte-1k09y9o">帮助与支持</span></a>  <button class="w-full flex items-center space-x-3 px-3 py-2 transition-colors duration-300 text-slate-600 hover:bg-slate-200 hover:text-red-600" data-svelte-h="svelte-3i8gsr"><span class="material-symbols-outlined">logout</span> <span class="text-sm font-label">登出</span></button></div></aside>  ${validate_component(LogoutModal, "LogoutModal").$$render(
       $$result,
       { isVisible: showLogoutModal },
       {
@@ -118,7 +119,7 @@ const TopNavBar = create_ssr_component(($$result, $$props, $$bindings, slots) =>
   });
   function generateBreadcrumbs(path) {
     const parts = path.split("/").filter((part) => part);
-    const breadcrumbs2 = [{ label: "仪表盘", href: "/" }];
+    const breadcrumbs2 = [{ label: "仪表盘", href: `${base}/` }];
     if (parts.length === 0) {
       breadcrumbs2[0].isActive = true;
       return breadcrumbs2;
@@ -163,7 +164,7 @@ const TopNavBar = create_ssr_component(($$result, $$props, $$bindings, slots) =>
   $$unsubscribe_page();
   return `<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-slate-200/15 shadow-sm flex justify-between items-center w-full px-8 h-16 transition-all duration-300 ease-in-out"><div class="flex items-center gap-8"><span class="text-lg font-black tracking-tight text-blue-700" data-svelte-h="svelte-ai9qpy">项目蓝图</span> <div class="hidden lg:flex items-center bg-surface-container-low rounded-full px-4 py-1.5 border border-outline-variant/10" data-svelte-h="svelte-1rjqx03"><span class="material-symbols-outlined text-slate-400 text-xl mr-2">search</span> <input class="bg-transparent border-none text-sm focus:ring-0 p-0 w-64 placeholder:text-slate-400" placeholder="搜索需求..." type="text"></div>  <div class="hidden md:flex items-center gap-2 ml-4 text-sm">${each(breadcrumbs, (breadcrumb, index) => {
     return `${index > 0 ? `<span class="material-symbols-outlined text-xs text-secondary" data-svelte-h="svelte-k0b6eh">chevron_right</span>` : ``} ${breadcrumb.isActive ? `<span class="text-on-surface font-medium">${escape(breadcrumb.label)}</span>` : `<a${add_attribute("href", breadcrumb.href, 0)} class="text-secondary hover:text-primary transition-colors">${escape(breadcrumb.label)}</a>`}`;
-  })}</div></div> <div class="flex items-center gap-4" data-svelte-h="svelte-73zppg"><div class="flex items-center gap-3 ml-2 border-l border-slate-200/30 pl-4"><span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors">notifications</span>  </div></div></header>`;
+  })}</div></div> <div class="flex items-center gap-4" data-svelte-h="svelte-m0d8yz"><div class="flex items-center gap-3 ml-2 border-l border-slate-200/30 pl-4"><span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors">notifications</span>  </div></div></header>`;
 });
 const MobileNavBar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $page, $$unsubscribe_page;
@@ -174,25 +175,25 @@ const MobileNavBar = create_ssr_component(($$result, $$props, $$bindings, slots)
       id: "dashboard",
       label: "核心",
       icon: "dashboard",
-      href: "/"
+      href: `${base}/`
     },
     {
       id: "modules",
       label: "模块",
       icon: "layers",
-      href: "/questionnaire"
+      href: `${base}/questionnaire`
     },
     {
       id: "report",
       label: "报告",
       icon: "assessment",
-      href: "/report"
+      href: `${base}/report`
     },
     {
       id: "settings",
       label: "设置",
       icon: "settings",
-      href: "#"
+      href: `${base}/settings`
     }
   ];
   $$unsubscribe_page();

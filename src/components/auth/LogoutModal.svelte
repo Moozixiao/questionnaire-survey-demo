@@ -1,6 +1,7 @@
 <script>
 	import { logout } from "../../stores/authStore";
 	import { goto } from "$app/navigation";
+	import { base } from "$app/paths";
 
 	// 弹窗状态
 	export let isVisible = false;
@@ -16,7 +17,7 @@
 		// 执行登出
 		logout();
 		// 跳转到登录页面
-		goto("/login");
+		goto(`${base}/login`);
 	}
 
 	// 点击背景关闭
