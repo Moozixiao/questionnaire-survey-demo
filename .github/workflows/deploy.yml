@@ -1,36 +1,47 @@
 name: Deploy to GitHub Pages
 
+# 触发条件：每次 push 到主分支（master 或 main）
 on:
   push:
     branches:
-      - master  # 或 main，根据仓库实际分支
+      - master  # 如果默认分支是 main，这里改为 main
 
+# 给 GitHub Actions 写权限
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      # 1️⃣ Checkout 代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          persist-credentials: true  # 保留 GITHUB_TOKEN
 
+      # 2️⃣ 安装 Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '18'  # 根据你的项目调整
 
+      # 3️⃣ 安装依赖
       - name: Install dependencies
         run: npm install
 
+      # 4️⃣ 构建项目
       - name: Build project
         run: npm run build
 
+      # 5️⃣ 部署到 gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./build
+          publish_dir: ./build      # 指向 build 输出目录
+          publish_branch: gh-pages  # 部署到 gh-pages 分支
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          force_orphan: true       # 确保覆盖整个 gh-pages 分支
