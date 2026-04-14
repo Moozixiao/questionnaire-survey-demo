@@ -54,45 +54,49 @@ if (typeof localStorage !== 'undefined') {
 
 // 应用主题到文档
 function applyTheme(theme: ThemeSettings) {
-    // 移除旧的主题类
-    document.documentElement.classList.remove('light', 'dark');
-    
-    // 确定当前主题模式
-    let currentMode: 'light' | 'dark';
-    if (theme.mode === 'system') {
-        currentMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    } else {
-        currentMode = theme.mode;
+    if (typeof document !== 'undefined') {
+        // 移除旧的主题类
+        document.documentElement.classList.remove('light', 'dark');
+        
+        // 确定当前主题模式
+        let currentMode: 'light' | 'dark';
+        if (theme.mode === 'system' && typeof window !== 'undefined') {
+            currentMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+            currentMode = theme.mode;
+        }
+        
+        // 添加新的主题类
+        document.documentElement.classList.add(currentMode);
+        
+        // 应用自定义设置
+        applyCustomSettings(theme.custom);
     }
-    
-    // 添加新的主题类
-    document.documentElement.classList.add(currentMode);
-    
-    // 应用自定义设置
-    applyCustomSettings(theme.custom);
 }
 
 // 应用自定义设置
 function applyCustomSettings(custom: ThemeSettings['custom']) {
-    // 应用主色调
-    document.documentElement.style.setProperty('--primary-color', custom.primaryColor);
-    
-    // 应用字体大小
-    document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg');
-    switch (custom.fontSize) {
-        case 'small':
-            document.documentElement.classList.add('text-sm');
-            break;
-        case 'large':
-            document.documentElement.classList.add('text-lg');
-            break;
-        default:
-            document.documentElement.classList.add('text-base');
+    if (typeof document !== 'undefined') {
+        // 应用主色调
+        document.documentElement.style.setProperty('--primary-color', custom.primaryColor);
+        
+        // 应用字体大小
+        document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg');
+        switch (custom.fontSize) {
+            case 'small':
+                document.documentElement.classList.add('text-sm');
+                break;
+            case 'large':
+                document.documentElement.classList.add('text-lg');
+                break;
+            default:
+                document.documentElement.classList.add('text-base');
+        }
+        
+        // 应用间距
+        document.documentElement.classList.remove('space-compact', 'space-default', 'space-comfortable');
+        document.documentElement.classList.add(`space-${custom.spacing}`);
     }
-    
-    // 应用间距
-    document.documentElement.classList.remove('space-compact', 'space-default', 'space-comfortable');
-    document.documentElement.classList.add(`space-${custom.spacing}`);
 }
 
 // 主题操作函数

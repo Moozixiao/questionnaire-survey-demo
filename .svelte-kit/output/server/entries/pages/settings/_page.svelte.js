@@ -33,31 +33,35 @@ if (typeof localStorage !== "undefined") {
   });
 }
 function applyTheme(theme) {
-  document.documentElement.classList.remove("light", "dark");
-  let currentMode;
-  if (theme.mode === "system") {
-    currentMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  } else {
-    currentMode = theme.mode;
+  if (typeof document !== "undefined") {
+    document.documentElement.classList.remove("light", "dark");
+    let currentMode;
+    if (theme.mode === "system" && typeof window !== "undefined") {
+      currentMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    } else {
+      currentMode = theme.mode;
+    }
+    document.documentElement.classList.add(currentMode);
+    applyCustomSettings(theme.custom);
   }
-  document.documentElement.classList.add(currentMode);
-  applyCustomSettings(theme.custom);
 }
 function applyCustomSettings(custom) {
-  document.documentElement.style.setProperty("--primary-color", custom.primaryColor);
-  document.documentElement.classList.remove("text-sm", "text-base", "text-lg");
-  switch (custom.fontSize) {
-    case "small":
-      document.documentElement.classList.add("text-sm");
-      break;
-    case "large":
-      document.documentElement.classList.add("text-lg");
-      break;
-    default:
-      document.documentElement.classList.add("text-base");
+  if (typeof document !== "undefined") {
+    document.documentElement.style.setProperty("--primary-color", custom.primaryColor);
+    document.documentElement.classList.remove("text-sm", "text-base", "text-lg");
+    switch (custom.fontSize) {
+      case "small":
+        document.documentElement.classList.add("text-sm");
+        break;
+      case "large":
+        document.documentElement.classList.add("text-lg");
+        break;
+      default:
+        document.documentElement.classList.add("text-base");
+    }
+    document.documentElement.classList.remove("space-compact", "space-default", "space-comfortable");
+    document.documentElement.classList.add(`space-${custom.spacing}`);
   }
-  document.documentElement.classList.remove("space-compact", "space-default", "space-comfortable");
-  document.documentElement.classList.add(`space-${custom.spacing}`);
 }
 if (typeof window !== "undefined") {
   themeStore.subscribe(applyTheme);

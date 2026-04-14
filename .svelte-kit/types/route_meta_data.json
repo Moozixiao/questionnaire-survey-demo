@@ -1,11 +1,31 @@
 {
-	"/": [],
-	"/login": [],
-	"/questionnaire": [],
-	"/questionnaire/logistics": [],
-	"/questionnaire/project-core": [],
-	"/questionnaire/technical": [],
-	"/report": [],
-	"/settings": [],
-	"/support": []
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/login": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/questionnaire": [
+		"src/routes/+layout.ts"
+	],
+	"/questionnaire/logistics": [
+		"src/routes/+layout.ts"
+	],
+	"/questionnaire/project-core": [
+		"src/routes/+layout.ts"
+	],
+	"/questionnaire/technical": [
+		"src/routes/+layout.ts"
+	],
+	"/report": [
+		"src/routes/+layout.ts"
+	],
+	"/settings": [
+		"src/routes/+layout.ts"
+	],
+	"/support": [
+		"src/routes/+layout.ts"
+	]
 }

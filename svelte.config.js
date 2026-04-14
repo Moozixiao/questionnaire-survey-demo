@@ -9,7 +9,10 @@ const config = {
       assets: 'build',
       fallback: null, // 对于单页应用，可设置为 'index.html'
       precompress: false
-    })
+    }),
+    prerender: {
+      handleHttpError: 'warn'
+    }
   }
 };
 
