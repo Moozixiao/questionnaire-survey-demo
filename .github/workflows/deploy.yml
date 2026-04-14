@@ -3,7 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # 触发部署的分支（根据你的默认分支调整）
+      - master  # 或 main，根据仓库实际分支
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -11,11 +14,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # 使用项目兼容的 Node.js 版本
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
@@ -27,4 +32,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # 构建输出目录（与适配器配置一致）
+          publish_branch: gh-pages
+          publish_dir: ./build
