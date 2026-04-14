@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 主题颜色 */
+  --primary-color: #3b82f6;
+  
+  /* 背景颜色 */
+  --surface-color: #ffffff;
+  --surface-container-lowest: #f9fafb;
+  
+  /* 过渡效果 */
+  --transition-duration: 0.3s;
+  --transition-timing: ease-in-out;
+}
+
+/* 背景样式类 */
+.bg-surface {
+  background-color: var(--surface-color);
+}
+
+.bg-surface-container-lowest {
+  background-color: var(--surface-container-lowest);
+}
+
+/* 平滑过渡效果 */
+* {
+  transition: background-color var(--transition-duration) var(--transition-timing),
+              color var(--transition-duration) var(--transition-timing),
+              border-color var(--transition-duration) var(--transition-timing),
+              box-shadow var(--transition-duration) var(--transition-timing);
+}
+
+/* 字体大小类 */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* 间距类 */
+.space-compact {
+  --space-unit: 0.5rem;
+}
+
+.space-default {
+  --space-unit: 1rem;
+}
+
+.space-comfortable {
+  --space-unit: 1.5rem;
+}
+
+/* 深色主题 */
+.dark {
+  color-scheme: dark;
+  background-color: #111827;
+  color: #f3f4f6;
+  
+  /* 深色模式背景颜色 */
+  --surface-color: #111827;
+  --surface-container-lowest: #1f2937;
+}
+
+.dark .bg-surface {
+  background-color: var(--surface-color);
+}
+
+.dark .bg-surface-container-lowest {
+  background-color: var(--surface-container-lowest);
+}
+
+.dark .bg-slate-50 {
+  background-color: #374151;
+}
+
+.dark .bg-slate-100 {
+  background-color: #4b5563;
+}
+
+.dark .border-slate-200 {
+  border-color: #374151;
+}
+
+.dark .border-slate-300 {
+  border-color: #4b5563;
+}
+
+.dark .text-on-surface {
+  color: #f3f4f6;
+}
+
+.dark .text-secondary {
+  color: #9ca3af;
+}
+
+.dark .text-slate-400 {
+  color: #9ca3af;
+}
+
+.dark .text-slate-500 {
+  color: #9ca3af;
+}
+
+.dark .text-slate-700 {
+  color: #e5e7eb;
+}
+
+.dark .hover\:bg-slate-100:hover {
+  background-color: #4b5563;
+}
+
+.dark .hover\:bg-slate-50:hover {
+  background-color: #374151;
+}
+
+.dark .hover\:bg-slate-100:hover {
+  background-color: #4b5563;
+}
+
+.dark .hover\:bg-slate-50:hover {
+  background-color: #374151;
+}
+
+/* 深色模式下的主题预览 */
+.dark .theme-preview {
+  background-color: #374151 !important;
+  border-color: #4b5563 !important;
+}
+
+.dark .theme-preview .preview-window-dots {
+  background-color: #111827 !important;
+}
+
+.dark .theme-preview .preview-content {
+  background-color: #4b5563 !important;
+}
+
+.dark .theme-preview .preview-button-secondary {
+  border-color: #4b5563 !important;
+  color: #f3f4f6 !important;
+}

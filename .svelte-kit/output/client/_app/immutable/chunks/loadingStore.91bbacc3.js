@@ -1,0 +1,1 @@
+import{w as a}from"./index.1dbeafb7.js";const o=()=>{const{set:e,update:i,subscribe:s}=a({isLoading:!1,message:"加载中...",fullscreen:!0});return{subscribe:s,show:(r="加载中...",t=!0)=>{e({isLoading:!0,message:r,fullscreen:t})},hide:()=>{e({isLoading:!1,message:"加载中...",fullscreen:!0})}}},l=o();export{l};

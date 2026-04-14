@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>项目蓝图 - 项目核心</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#57657a",
+                        "on-surface": "#191c1e",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-container": "#bdffdb",
+                        "secondary-fixed": "#d5e3fc",
+                        "primary": "#004ac6",
+                        "surface-dim": "#d8dadc",
+                        "on-background": "#191c1e",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-fixed": "#002113",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#d5e3fc",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#006242",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "primary-container": "#2563eb",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#93000a",
+                        "secondary": "#515f74",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "tertiary-container": "#007d55",
+                        "surface-tint": "#0053db",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "outline": "#737686",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#434655",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-fixed": "#6ffbbe",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#eeefff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', 'Noto Sans SC', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-slate-50 dark:bg-slate-900 py-6 flex-shrink-0 z-40 border-r border-slate-200/15">
+<div class="px-6 mb-8">
+<div class="text-xl font-bold text-blue-800 dark:text-blue-300">精准架构师</div>
+<div class="text-xs text-secondary font-medium mt-1">需求管理器</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<!-- Active Navigation -->
+<a class="flex items-center gap-3 px-3 py-3 text-blue-700 dark:text-blue-400 font-semibold border-r-4 border-blue-600 bg-slate-200/50 dark:bg-slate-800/50 scale-[0.98] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-label">项目核心</span>
+</a>
+<!-- Inactive Navigation -->
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="text-sm font-label">技术层面</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-sm font-label">后勤规划</span>
+</a>
+</nav>
+<div class="px-3 pt-6 border-t border-slate-200/20">
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-label">设置</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm font-label">支持</span>
+</a>
+</div>
+<div class="mt-6 px-3">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity">
+                    新建模块
+                </button>
+</div>
+<div class="mt-8 px-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional male portrait with minimalist background, soft natural lighting, high-end corporate headshot style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCbQNNkxto-BxT3Z2_Vh6GpMMmwkUVN6w04EMk9-3vuil6SWWDBCa4u78WHUlnneiMyyf1ineCGhWvwRJrz5Zf4hVDmJJynAceMAFbsxPq5YbUVWhlB96G-d-G9ZML48kFYPAU7Whlicx-o2pEVZLJY_n1u58fKYlzkiEAIjVtKGiE1E5DRS8o3Qj6TVs_3DlEmA5w-c-z2ZkcH_11zGCc5PAMSrRRq8lw0VWV_yrDVFtmKodXCNQ__VozyPja2NiL9hv3eGfpbF4"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface">Alex Chen</span>
+<span class="text-[10px] text-secondary">首席架构师</span>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 relative">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center w-full px-8 h-16 sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/15 dark:border-slate-800/15 shadow-sm dark:shadow-none transition-all duration-300 ease-in-out">
+<div class="flex items-center gap-8">
+<div class="text-lg font-black tracking-tight text-blue-700 dark:text-blue-400">项目蓝图</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors text-sm font-medium font-label" href="#">仪表板</a>
+<a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-600 pb-1 text-sm font-medium font-label" href="#">模块</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors text-sm font-medium font-label" href="#">报告</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-sm font-bold bg-primary-container text-on-primary-container px-4 py-2 rounded-lg hover:brightness-110 transition-all">
+                    保存草稿
+                </button>
+<div class="flex gap-2">
+<button class="p-2 text-secondary hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto bg-surface p-6 md:p-12">
+<div class="max-w-4xl mx-auto">
+<!-- Progress Header -->
+<div class="mb-12 flex flex-col gap-4">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-primary font-bold text-sm tracking-widest font-label uppercase">模块 01</span>
+<h1 class="text-4xl font-extrabold text-on-surface mt-1">项目核心</h1>
+</div>
+<div class="text-right">
+<span class="text-3xl font-black text-primary">33%</span>
+<p class="text-secondary text-xs font-medium">完成进度</p>
+</div>
+</div>
+<!-- Blueprint Progress Bar -->
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-700 ease-out" style="width: 33%"></div>
+</div>
+</div>
+<!-- Focused Question Area -->
+<div class="space-y-8">
+<!-- Question Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 relative overflow-hidden">
+<!-- Left Status Stripe -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex flex-col gap-8">
+<header>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider mb-4 inline-block">初始定义</span>
+<h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-tight">问题 1：目标主平台是什么？</h2>
+<p class="text-secondary mt-3 text-lg leading-relaxed">定义部署目标可确保我们根据正确的运行时环境和性能约束进行架构设计。</p>
+</header>
+<!-- Options Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Selected Option -->
+<button class="group relative flex items-start gap-4 p-5 rounded-xl bg-primary text-left transition-all duration-300 ring-2 ring-primary ring-offset-4 ring-offset-surface-container-lowest">
+<div class="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">language</span>
+</div>
+<div>
+<h3 class="font-bold text-white text-lg">网页端</h3>
+<p class="text-white/80 text-sm mt-1">具有全球覆盖能力的响应式浏览器端应用程序。</p>
+</div>
+<div class="absolute top-4 right-4 text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<!-- Inactive Options -->
+<button class="group relative flex items-start gap-4 p-5 rounded-xl bg-surface-container-low text-left hover:bg-surface-bright transition-all duration-300 border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">smartphone</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">移动端</h3>
+<p class="text-secondary text-sm mt-1">集成了设备功能的原生 iOS 和 Android 体验。</p>
+</div>
+</button>
+<button class="group relative flex items-start gap-4 p-5 rounded-xl bg-surface-container-low text-left hover:bg-surface-bright transition-all duration-300 border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">desktop_windows</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">桌面端</h3>
+<p class="text-secondary text-sm mt-1">面向专业用户的独立操作系统特定安装程序。</p>
+</div>
+</button>
+<button class="group relative flex items-start gap-4 p-5 rounded-xl bg-surface-container-low text-left hover:bg-surface-bright transition-all duration-300 border border-transparent hover:border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">devices_other</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">跨平台</h3>
+<p class="text-secondary text-sm mt-1">在所有数字接触点上共享的代码库。</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-between pt-8 border-t border-outline-variant/10">
+<button class="flex items-center gap-2 text-secondary font-semibold px-6 py-3 rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>上一步</span>
+</button>
+<div class="flex items-center gap-4">
+<!-- Skip Button (Secondary) -->
+<button class="bg-surface-container-high text-on-surface font-semibold px-8 py-3 rounded-xl hover:brightness-95 transition-all">
+                                跳过
+                            </button>
+<!-- Next Button (Primary/Active) -->
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold px-12 py-3 rounded-xl shadow-lg shadow-primary/20 flex items-center gap-2 hover:scale-[1.02] transition-transform">
+<span>下一步</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Aesthetic Meta -->
+<div class="mt-20 flex flex-col items-center gap-6 text-center">
+<div class="w-16 h-1 bg-surface-container rounded-full"></div>
+<p class="text-secondary text-xs font-medium max-w-sm">每个回答都会自动保存到活动工作区。您可以稍后在“技术层面”模块中调整这些核心设置。</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-1/2 bg-blue-50/50 rounded-bl-[100%] blur-3xl opacity-50 pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-1/4 h-1/3 bg-slate-100/50 rounded-tr-[100%] blur-3xl opacity-50 pointer-events-none"></div>
+</body></html>
