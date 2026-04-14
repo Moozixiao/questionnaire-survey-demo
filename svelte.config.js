@@ -1,5 +1,4 @@
 import adapter from '@sveltejs/adapter-static';
-const base = process.env.VITE_BASE_URL;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,7 +11,7 @@ const config = {
       precompress: false
     }),
     paths: {
-      base
+      base: '/questionnaire-survey-demo'
     },
     prerender: {
       handleHttpError: 'warn'
